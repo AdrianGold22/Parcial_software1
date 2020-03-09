@@ -8,13 +8,13 @@ from pytz import timezone
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST']='192.168.99.100'
+app.config['MYSQL_HOST']='db'
 #app.config['MYSQL_HOST']='127.0.0.1'
 app.config['MYSQL_USER']='root'
 app.config['MYSQL_PASSWORD']='root'
 app.config['MYSQL_DB']='myapp'
 mysql= MySQL(app)
-r_server= redis.Redis("192.168.99.100")
+r_server= redis.Redis("redis")
 def timestamp():
     cartagena = timezone('America/Bogota')
     sa_time = datetime.now(cartagena)
